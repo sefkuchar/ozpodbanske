@@ -1,0 +1,100 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "/"
+logo_url: "/images/logo.png"
+
+collections:
+
+ # ======================
+  # LANDING PAGE (O nás)
+  # ======================
+  - name: "landing"
+    label: "Landing page"
+    files:
+      - label: "Obsah landing page"
+        name: "home"
+        file: "content/landing.json"
+        format: "json"
+        fields:
+          - { label: "Malý titulok (nadpis hore)", name: "subtitle", widget: "string", required: false }
+          - { label: "Hlavný nadpis", name: "title", widget: "string" }
+          - { label: "Podnadpis", name: "lead", widget: "string", required: false }
+          - { label: "Text", name: "body", widget: "markdown", required: false }
+          - { label: "Obrázok pozadia", name: "heroImage", widget: "image", required: false }
+          - { label: "Overlay farba (napr. rgba(0,0,0,0.4))", name: "overlay", widget: "string", required: false }
+
+
+  # ======================
+  # AKTIVITY
+  # ======================
+  - name: "activities"
+    label: "Aktivity"
+    folder: "content/activities"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Názov", name: "title", widget: "string" }
+      - { label: "Popis", name: "description", widget: "text" }
+      - { label: "Obrázok", name: "image", widget: "image", required: false }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+
+  # ======================
+  # HISTÓRIA
+  # ======================
+  - name: "history"
+    label: "História"
+    folder: "content/history"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Nadpis", name: "title", widget: "string" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+
+  # ======================
+  # PRÍRODA
+  # ======================
+  - name: "nature"
+    label: "Príroda"
+    folder: "content/nature"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Nadpis", name: "title", widget: "string" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+
+  # ======================
+  # PRAVIDLÁ
+  # ======================
+  - name: "rules"
+    label: "Pravidlá"
+    folder: "content/rules"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Nadpis", name: "title", widget: "string" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+
+  # ======================
+  # MAGICKÉ PODBANSKÉ
+  # ======================
+  - name: "magic"
+    label: "Magické Podbanské"
+    folder: "content/magic"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Nadpis", name: "title", widget: "string" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+      - { label: "Obrázok", name: "image", widget: "image", required: false }
