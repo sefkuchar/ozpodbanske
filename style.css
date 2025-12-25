@@ -1,47 +1,80 @@
-.activities-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+/* =========================================================
+   EVENT + ACTIVITY ACTION BUTTONS (Unified Style)
+========================================================= */
 
-.activity-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.activity-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-}
-
-.activity-card img.activity-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-.activity-card h3 {
-  margin: 6px 0 8px;
-}
-
-.content-block {
-  margin-bottom: 24px;
-  padding: 14px;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-.success-message {
-  background: #e8f7ed;
-  border: 1px solid #b2e3c2;
-  padding: 16px;
-  border-radius: 12px;
-  color: #225c2c;
-  text-align: center;
+.event-card-action button,
+.activity-card-action button {
+  background: linear-gradient(135deg,#a88b2a,#c9aa37);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6em 1.8em;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(168,139,42,.18);
+  transition: 
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease,
+    opacity .18s ease;
+  margin-top: .6em;
+  opacity: .95;
+}
+
+.event-card-action button:hover,
+.activity-card-action button:hover,
+.event-card-action button:focus,
+.activity-card-action button:focus {
+  background: linear-gradient(135deg,#8a6c1a,#a88b2a);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 18px rgba(168,139,42,.28);
+  opacity: 1;
+}
+
+.event-card-action button:active,
+.activity-card-action button:active {
+  transform: scale(.98);
+  box-shadow: 0 2px 8px rgba(168,139,42,.2);
+}
+
+.event-card-action button:focus-visible,
+.activity-card-action button:focus-visible {
+  outline: 3px solid rgba(168,139,42,.45);
+  outline-offset: 2px;
+}
+
+/* Keep wrapper centered */
+.activity-card-action,
+.event-card-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2em;
+}
+
+/* =========================================================
+   FIX — Activity card title block had a syntax issue
+========================================================= */
+
+.activity-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45em;
+  font-weight: 600;
+  margin: 0.7em auto;
+  color: #2d2312;
+  text-align: center;
+  letter-spacing: 0.01em;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Ensure centered alignment for category + title */
+.activity-card-category,
+.activity-card-title {
+  margin-left: auto;
+  margin-right: auto;
 }
