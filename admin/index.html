@@ -6,16 +6,22 @@
   </head>
   <body>
 
-    <!-- Load Netlify Identity Widget -->
+    <!-- REQUIRED for Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- Load Decap / Netlify CMS -->
+    <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
 
     <script>
-      // Initialize Identity so invite / recovery tokens work
+      // Redirect to /admin after login
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.init();
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
       }
     </script>
 
